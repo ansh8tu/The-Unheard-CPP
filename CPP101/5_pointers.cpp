@@ -51,5 +51,23 @@ int main(){
     // same location 
     cout<<"The address of that variable is : "<<p<<endl;
     //the above expression displays 0x7bfe14 which is still the same 
+
+
+    //lets discuss a char* pointer which some of us might not be familiar with
+    //try compiling this without using const and you will get a warning, but why?
+    //because string constants cannot be modified as they are present in read only memory
+    const char* myString;
+    myString = "Hello, World!";
+    cout<<myString<<endl;
+
+    //so why did we use a char*, the answer is quite simple we already know 
+    //that this string will be stored in a continous memory location and if 
+    //we want to do so then we need to store the address of the first character
+    //and in order to do so we use a char* pointer 
+
+    cout<< *(myString + 2)<<endl;
+    //prints l
+
+    //|H|e|l|l|o|,|W|o|r|l|d|/o---> escape sequance 
    
 }
