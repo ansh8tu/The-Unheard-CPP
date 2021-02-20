@@ -14,19 +14,33 @@ class Player{
         int speed;
         int x,y;
 
+         Player(){
+            cout<<"Default Constructor Called!"<<endl;
+        }
+
         //methods/data functions 
-         void movePlayer(int x, int y){
+        void movePlayer(int x, int y){
             x = x*speed;
             y = y*speed;
             cout<<"Player moved to : ("<<x<<", "<<y<<")"<<endl;
+      
     }
 
 };
 
 int main(){
 
-    //creating an instance of a class
+    //creating an instance of a class on stack
     Player player1;
+
+    //creating an instance of a class on heap
+    Player* player2 = new Player();
+    player2->x=1;
+    player2->y=2;
+    player2->speed = 10;
+
+    //using the arrow keyword to access the method
+    player2->movePlayer(10, 20);
 
     //setting the properties of the player
     player1.x=1;
