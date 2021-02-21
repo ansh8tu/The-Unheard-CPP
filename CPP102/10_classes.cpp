@@ -41,6 +41,7 @@ int main(){
 
     //using the arrow keyword to access the method
     player2->movePlayer(10, 20);
+    delete player2;
 
     //setting the properties of the player
     player1.x=1;
