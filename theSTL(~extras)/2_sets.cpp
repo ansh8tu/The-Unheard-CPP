@@ -6,8 +6,8 @@ WHAT YOU'LL FIND HERE, 🤓🧐 ?
 2. Adding elements to Sets
 3. Printing Sets on screen
 4. Performing binary search and simple search using find()
-6. Removing an element from set
-5. Iterators in sets
+5. Removing an element from set
+6. Iterators in sets
 6. Upper bound
 7. Sorting elements in descending order
 8. Conclusion
