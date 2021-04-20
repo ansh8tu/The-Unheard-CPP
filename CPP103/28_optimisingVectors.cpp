@@ -37,9 +37,6 @@ int main(){
 
     //no copy created in this case 
     boxOne.emplace_back(Box(10,20,30));
-
-    
-
     cout<<boxOne<<endl;
 
 }
