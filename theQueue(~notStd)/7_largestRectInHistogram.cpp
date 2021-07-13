@@ -7,13 +7,13 @@ int largestRectangleArea(vector<int>& heights) {
 
     stack<int> stackzy;
     int i=0;
-    int s = heights.size();
+    int s = heights.size();//2
     int ans = 0;
-    heights.push_back(0);
+    heights.push_back(0); //{2,4,0}
 
-    while(i<s){
+    while(i<=s){
 
-        while(!stackzy.empty() && heights[stackzy.top()] > heights[i]){
+        while(!stackzy.empty() && heights[stackzy.top()] >= heights[i]){
             int top = stackzy.top();
             int h =  heights[stackzy.top()];
             stackzy.pop();
@@ -37,7 +37,7 @@ int largestRectangleArea(vector<int>& heights) {
 
 int main(){
 
-    vector<int> heights = {2,1,5,6,2,3};
+    vector<int> heights = {2,4};
     int ans = largestRectangleArea(heights);
     cout<<"The area of largest rectangle is: "<<ans<<endl;
 
