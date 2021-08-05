@@ -31,6 +31,8 @@ public:
     }
 
     void topologicalSort(){
+
+        
         stack<int> stackzy;
         bool* visited = new bool[numOfVertices];
 
