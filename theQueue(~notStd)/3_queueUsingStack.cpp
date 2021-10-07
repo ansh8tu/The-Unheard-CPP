@@ -2,51 +2,76 @@
 #include<stack>
 using namespace std;
 
-class Queue{
+class MyQueue {
+    stack<int> s1;
+    stack<int> s2;
+public:
+    MyQueue() {
+        
+    }
     
-    public:
-        stack<int> stackOne;
-        stack<int> stackTwo;
-
-    public:
-        void push(int data){
-            stackOne.push(data);
+    void push(int x) {
+        s1.push(x);
+    }
+    
+    int pop() {
+        if(s1.empty() && s2.empty()){
+            return -1;
+        }
+        
+        if(!s2.empty()){
+           int topVal = s2.top();
+           s2.pop();
+           return topVal;
+        }
+        
+        else{
+            while(!s1.empty()){
+                int num = s1.top();
+                s2.push(num);
+                s1.pop();
+            }
+            int topVal = s2.top();
+            s2.pop();
+            return topVal;
+        }
+        
+        
+    }
+    
+    int peek() {
+        if(s1.empty() && s2.empty()){
+            return -1;
+        }
+        
+        if(!s2.empty()){
+            return s2.top();
         }
 
-        int pop(){
-            if(stackOne.empty() && stackTwo.empty()){
-                cout<<"Sorry can't pop, Queue is Empty!"<<endl;
-                return -1;
+        else{
+            while(!s1.empty()){
+                int num = s1.top();
+                s2.push(num);
+                s1.pop();
             }
-            if(!stackOne.empty()){
-                while(!stackOne.empty()){
-                    stackTwo.push(stackOne.top());
-                    stackOne.pop();
-                }
-            }
-
-            int topMostValue =  stackTwo.top();
-            stackTwo.pop();
-
-            return topMostValue;
-
+            int topVal = s2.top();
+            return topVal;
         }
-
-        bool empty(){
-            if(stackOne.empty() && stackTwo.empty()){
-                return true;
-            }
-
-            return false;
+        
+        
+    }
+    
+    bool empty() {
+        if(s1.empty() && s2.empty()){
+            return true;
         }
-
-
-
+        return false;
+    }
 };
 
 int main(){
 
-    Queue que;
+    MyQueue que;
     que.push(10);
     que.push(20);
     que.push(30);
